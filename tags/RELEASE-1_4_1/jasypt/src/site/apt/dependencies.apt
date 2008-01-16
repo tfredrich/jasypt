@@ -1,0 +1,37 @@
+  -------
+  Dependencies
+  -------
+
+
+  If you are using Maven 2, there is no need to consider these dependencies,
+  as they will be automatically managed as transitive dependencies.
+
+
+Java Virtual Machine
+
+  Jasypt needs Java Standard Edition, version 1.4 or higher.
+  
+  If you are going to use strong encryption algorithms (like TripleDES), you
+  may have to download and install the {{{http://java.sun.com/javase/downloads}Java 
+  Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy 
+  Files}}.
+
+Base dependencies for jasypt
+
+  Jasypt depends on the following external libraries:
+  
+    * {{{http://jakarta.apache.org/commons/lang/}Apache Jakarta Commons Lang}} 2.1 or higher
+    
+    * {{{http://jakarta.apache.org/commons/codec/}Apache Jakarta Commons Codec}} 1.1 or higher
+    
+    * {{{http://www.icu-project.org/}International Components for Unicode (ICU)}} 3.4.4 or higher
+  
+
+Optional dependencies
+
+  Jasypt can optionally depend on the following external libraries:
+    
+    * {{{http://www.hibernate.org}Hibernate}} 3.1 or higher
+    
+    * {{{http://www.acegisecurity.org}Acegi Security}} 1.0.0 or higher
+    
