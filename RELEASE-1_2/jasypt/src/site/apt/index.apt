@@ -1,0 +1,86 @@
+  -------
+  Main
+  -------
+
+  <<Jasypt 1.2 has been just released>>. Have a look at the 
+  {{{changelog.html}ChangeLog}}, check the {{{features.html}features}}
+  or {{{download.html}download}} the new version.
+
+  <<Stay in touch with other jasypt users!>> request help, discuss your ideas
+  or make suggestions in the new
+  {{{https://lists.sourceforge.net/lists/listinfo/jasypt-users} jasypt-users mailing list}}
+  and the {{{http://www.nabble.com/Jasypt---Users-f21330.html}users forum}}.
+
+  New article published: <<{{{howtoencryptuserpasswords.html}How to Encrypt User Passwords}}>>.
+
+Java Simplified Encryption
+
+  Jasypt is a java library which allows 
+  the developer to add basic encryption capabilities to his/her 
+  projects with minimum effort, and without the need of having 
+  deep knowledge on how cryptography works.
+
+    * High-security, standards-based encryption techniques, both for unidirectional
+    and bidirectional encryption. Encrypt passwords, texts, numbers, binaries...
+    
+    * Transparent integration with <<Hibernate>>.
+    
+    * Suitable for integration into <<Spring>>-based applications and also
+      transparently integrable with <<ACEGI>> (Spring Security).
+
+    * {{{features.html}...and much more}}
+
+  Have a look at the complete set of <<{{{features.html}Jasypt Features}}>>
+  or have a look at the <<{{{faq.html}FAQ}}>>.
+
+  With Jasypt, encrypting and checking a password can be as simple as...
+  
+----------------
+BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
+String encryptedPassword = passwordEncryptor.encryptPassword(userPassword);
+...
+if (passwordEncryptor.checkPassword(inputPassword, encryptedPassword)) {
+  // correct!
+} else {
+  // bad login!
+}
+----------------
+  
+  ...encrypting and decrypting a text...
+  
+----------------
+BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
+textEncryptor.setPassword(myEncryptionPassword);
+String myEncryptedText = textEncryptor.encrypt(myText);
+...
+String plainText = textEncryptor.decrypt(myEncryptedText);
+----------------
+
+  ...and what about encrypting some sensitive data directly from Hibernate?
+
+----------------
+<class name="Employee" table="EMPLOYEE">
+  ...
+  <property name="address" column="ADDRESS" type="encryptedString" />
+  <property name="salary" column="SALARY" type="encryptedDecimal" />
+  ...
+<class>
+----------------
+  
+  But of course, besides easy, <<jasypt is highly configurable>>. You will
+  be able to choose encryption algorithms, salt generation and many more
+  advanced features...
+  
+
+* Current version
+
+  Current stable version is <<1.2>> (Released: April 10th, 2007) [{{{download.html}Download}}] [{{{changelog.html}ChangeLog}}]
+
+
+* Encryption can be simple to use, spread the word!
+  
+  Have you written an article, tutorial or review about Jasypt in English or
+  in your own language? <<{{{team.html}Tell us}}>> so that we can link it from the
+  {{{externalresources.html}External Resources}} page.
+
+  

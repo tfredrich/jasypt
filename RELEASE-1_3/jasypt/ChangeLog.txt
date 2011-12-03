@@ -1,0 +1,112 @@
+1.3
+=======
+
+- DigesterConfig and PBEConfig are not Serializable anymore.
+- Added provider and providerName properties to DigesterConfig and
+  SimpleDigesterConfig classes.
+- Added providerClassName, providerName and saltGeneratorClassName
+  configuration at EnvironmentDigesterConfig.
+- StandardByteDigester, StandardStringDigester, Digester, 
+  and ConfigurablePasswordEncryptor can now specify the JCE security provider
+  (<tt>java.security.Provider</tt> implementation) which will be asked
+  for the digest algorithm.
+- Added provider and providerName properties to PBEConfig and
+  SimplePBEConfig classes.
+- Added providerClassName, providerName and saltGeneratorClassName
+  configuration at EnvironmentPBEConfig.
+- StandardPBEByteEncryptor, StandardPBEStringEncryptor, 
+  StandardPBEBigIntegerEncryptor and StandardPBEBigDecimalEncryptor can now 
+  specify the JCE security provider (<tt>java.security.Provider</tt> 
+  implementation) which will be asked for the digest algorithm.
+- Created new StringDigesterConfig configuration interface for digesters,
+  which extends DigesterConfig and adds parameters "unicodeNormalizationIgnored"
+  and "stringOutputType". Also created new implementations 
+  SimpleStringDigesterConfig and EnvironmentStringDigesterConfig.
+- Added Unicode Normalization step to StandardStringDigester, and also
+  capabilities to return hexadecimal-encoded digest Strings instead of only
+  BASE64 ones.
+- Created new StringPBEConfig configuration interface for encryptors,
+  which extends PBEConfig and adds parameter "stringOutputType". Also
+  created new implementations SimpleStringPBEConfig and
+  EnvironmentStringPBEConfig.
+- Added capabilities to return hexadecimal-endoded Strings to 
+  StandardPBEStringEncryptor.
+- Added capabilities to return hexadecimal-endoded Strings to 
+  ConfigurablePasswordEncryptor.
+- Added to HibernatePBEStringEncryptor the possibility to set the providerName,
+  provider and stringOutputType parameters.
+- Added providerName and stringOutputType parameters to all the String-related
+  Hibernate types.
+- Added package org.jasypt.web.pbeconfig for configuration of PBE encryption
+  keys from webapps. Includes servlet, filter and contextlistener.
+- Added WebPBEConfig and WebStringPBEConfig for configuration through the new
+  web PBE config infrastructure.
+
+
+
+1.2
+=======
+
+- Merged jasypt-hibernate and jasypt-spring-security into main jasypt trunk.
+- Package org.jasypt.util refactored. 
+- Created PasswordEncryptor and TextEncryptor interfaces,
+  to unify both basic- and strong-encryption implementations.
+  NOTE: the old org.jasypt.util classes have been DEPRECATED, and will be
+  removed in jasypt 1.3.
+- Added org.jasypt.util.password.ConfigurablePasswordEncryptor for a more
+  configurable way of using the "easy" password encryptor.
+- Added binary utils (org.jasypt.util.binary) for easy encryption of binaries.
+- Added numeric encryption functionalities: new 
+  StandardPBEBigIntegerEncryptor and StandardPBEBigDecimalEncryptor in the 
+  org.jasypt.encryption.pbe package
+- Added new org.jasypt.util.numeric package with easy utils for numeric 
+  encryption.
+- Refactored org.jasypt.hibernate classes into new "encryptor" and "type" 
+  subpackages.
+- Added HibernatePBEEncryptorRegistry support for BigInteger, BigDecimal and
+  Byte encryptors
+- Added Hibernate type for encryption of binaries (byte[]) into SQL BLOBs
+- Added Hibernate type for encryption of BigIntegers into SQL NUMERICs.
+- Added Hibernate type for encryption of BigDecimals into SQL NUMERICs.
+- Added Hibernate type for encryption of Bytes into SQL VARCHARs.
+- Added Hibernate type for encryption of Shorts into SQL VARCHARs.
+- Added Hibernate type for encryption of Integers into SQL VARCHARs.
+- Added Hibernate type for encryption of Longs into SQL VARCHARs.
+- Added Hibernate type for encryption of Floats into SQL VARCHARs.
+- Added Hibernate type for encryption of Doubles into SQL VARCHARs.
+- Added Hibernate type for encryption of Booleans into SQL VARCHARs.
+- Added Hibernate type for encryption of Dates into SQL VARCHARs.
+- Added Hibernate type for encryption of Calendars into SQL VARCHARs.
+- Added creation of standard encryptor in Hibernate encryptor objects
+  so that setEncryptor() method becomes optional and hibernate encryptors
+  can be directly configured via setPassword, setAlgorithm, etc.
+- Refactored org.jasypt.springsecurity package: created new PasswordEncoder
+  for use with both org.jasypt.util.password.PasswordEncryptor
+  or org.jasypt.digest.StringDigester implementations.
+- Created new org.jasypt.springsecurity.PBEPasswordEncoder for using
+  org.jasypt.util.text.TextEncryptor or 
+  org.jasypt.pbe.encryptor.PBEStringEncryptor from ACEGI Security.
+- Created new salt generation infrastructure, making different implementations
+  of salt generation possible (including fixed salt).
+  
+
+1.1
+=======
+
+- Added the ACEGI (Spring Security) integration add-on 
+  (org.jasypt.springsecurity)
+- Added org.jasypt.util.StrongPasswordEncryptor as a util class for
+  easy password encryption using a stronger algorithm.
+- Added org.jasypt.util.MessageDigester as a util class for
+  creating simple binary message digests.
+- Added org.jasypt.digest.config.EnvironmentDigesterConfig and
+  org.jasypt.encryption.pbe.config.EnvironmentPBEConfig for configuration
+  of encryptors and digesters using environment variables and system properties.
+- Objects of class org.jasypt.util.PasswordEncryptor now initialize their
+  internal StandardStringDigester at instance creation.
+- Made org.jasypt.digest.config.DigesterConfig and 
+  org.jasypt.encryption.pbe.config.PBEConfig extend java.io.Serializable
+
+1.0
+=======
+- First release of jasypt
